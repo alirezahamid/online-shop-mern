@@ -1,0 +1,14 @@
+{
+  "name": "techshop-mern",
+  "version": "1.0.0",
+  "description": "Online Gadget Shop",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server/server"
+  },
+  "author": "Alireza Hamid",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
