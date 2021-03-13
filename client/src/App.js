@@ -10,6 +10,8 @@ import LoginPage from "./pages/LoginPage"
 import RegisterPage from "./pages/RegisterPage"
 import ProfilePage from "./pages/ProfilePage"
 import ShippingPage from "./pages/ShippingPage"
+import PaymentPage from "./pages/PaymentPage"
+import PlaceOrderPage from "./pages/PlaceOrderPage"
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
             <Route path="/register" component={RegisterPage} exact />
             <Route path="/profile" component={ProfilePage} exact />
             <Route path="/shipping" component={ShippingPage} exact />
+            <Route path="/payment" component={PaymentPage} exact />
+            <Route path="/placeorder" component={PlaceOrderPage} exact />
             <Route path="/cart/:id?" component={CartPage} />
             <Route path="/" component={HomePage} exact />
           </Container>
