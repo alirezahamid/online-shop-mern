@@ -4,13 +4,14 @@ import { Table, Button } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import Message from "../components/Message"
 import Loader from "../components/Loader"
-import { listUsers } from "../store/actions/user.action"
+import { listUsers, deleteUser } from "../store/actions/user.action"
 
 const UserListPage = ({ history }) => {
   const dispatch = useDispatch()
 
   const { loading, error, users } = useSelector((state) => state.userList)
   const { userInfo } = useSelector((state) => state.userLogin)
+  const { success: successDelete } = useSelector((state) => state.userDelete)
 
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
@@ -18,10 +19,14 @@ const UserListPage = ({ history }) => {
     } else {
       history.push("/login")
     }
-  }, [dispatch, history, userInfo])
+  }, [dispatch, history, userInfo, successDelete])
 
   const deleteHandler = (id) => {
-    console.log("id")
+    if (window.confirm("Are you Sure?")) {
+      dispatch(deleteUser(id))
+    }
+
+    // console.log("id", id)
   }
   return (
     <>
@@ -44,8 +49,8 @@ const UserListPage = ({ history }) => {
             {!users ? (
               <Message variant="danger">Error</Message>
             ) : (
-              users.map((u) => (
-                <tr key={u._id}>
+              users.map((u, index) => (
+                <tr key={index}>
                   <td>{u._id}</td>
                   <td>{u.name}</td>
                   <td>
@@ -70,7 +75,9 @@ const UserListPage = ({ history }) => {
                     <Button
                       variant="danger"
                       className="btn-sm"
-                      onClick={deleteHandler(u._id)}
+                      onClick={() => {
+                        deleteHandler(u._id)
+                      }}
                     >
                       <i className="fas fa-trash"></i>
                     </Button>
