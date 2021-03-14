@@ -11,7 +11,7 @@ const PaymentPage = ({ history }) => {
   if (!shippingAddress) {
     history.push("/shipping")
   }
-  const [paymentMethod, setPaymentMethod] = useState("ZarinPal")
+  const [paymentMethod, setPaymentMethod] = useState("PayPal")
 
   const dispatch = useDispatch()
 
@@ -32,10 +32,10 @@ const PaymentPage = ({ history }) => {
           <Col>
             <Form.Check
               type="radio"
-              label="ZarinPal"
-              id="ZarinPal"
+              label="PayPal"
+              id="PayPal"
               name="paymentMethod"
-              value="ZarinPal"
+              value="PayPal"
               checked
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
