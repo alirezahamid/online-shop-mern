@@ -16,16 +16,15 @@ const ProfilePage = ({ history, location }) => {
   const { loading, error, user } = useSelector((state) => state.userDetails)
   const { userInfo } = useSelector((state) => state.userLogin)
   const { success } = useSelector((state) => state.userUpdateProfile)
-
   useEffect(() => {
     if (!userInfo) {
       history.push("/login")
     } else {
-      if (!user.name) {
+      if (!user) {
         dispatch(getUserDetails("profile"))
       } else {
-        setName(user.name)
-        setEmail(user.email)
+        setName(userInfo.name)
+        setEmail(userInfo.email)
       }
     }
   }, [history, userInfo, dispatch, user])
