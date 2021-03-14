@@ -24,7 +24,7 @@ const OrderPage = ({ match }) => {
 
   useEffect(() => {
     dispatch(getOrderDetails(orderId))
-  }, [dispatch])
+  }, [dispatch, orderId])
 
   return loading ? (
     <Loader />
