@@ -25,8 +25,6 @@ const UserListPage = ({ history }) => {
     if (window.confirm("Are you Sure?")) {
       dispatch(deleteUser(id))
     }
-
-    // console.log("id", id)
   }
   return (
     <>
