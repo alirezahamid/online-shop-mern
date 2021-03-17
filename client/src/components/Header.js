@@ -1,15 +1,7 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { LinkContainer } from "react-router-bootstrap"
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-  Container,
-} from "react-bootstrap"
+import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap"
 import { logout } from "../store/actions/user.action"
 
 const Header = () => {

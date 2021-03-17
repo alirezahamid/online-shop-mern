@@ -36,7 +36,7 @@ const UserEditPage = ({ history, match }) => {
         setIsAdmin(user.isAdmin)
       }
     }
-  }, [dispatch, user, userId, history])
+  }, [dispatch, user, userId, history, successUpdate])
 
   const submitHandler = (e) => {
     e.preventDefault()
